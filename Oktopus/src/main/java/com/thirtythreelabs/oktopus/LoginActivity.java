@@ -133,7 +133,7 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 		if(Config.URL.equals(url)){
 			mTestText.setVisibility(View.GONE);
 		}else{
-			mTestText.append("  ---  " + Config.URL);
+			mTestText.append(" (Ubi)  ---  " + Config.URL);
 		}
 		
 	}
