@@ -257,7 +257,7 @@ public class ChooseWarehouseActivity extends Activity implements OnClickListener
 		} else if (v.getId() == R.id.refreshButton) {
 			getHeadersByWarehouse();
 		}
-		
+
 	}
 
 }
