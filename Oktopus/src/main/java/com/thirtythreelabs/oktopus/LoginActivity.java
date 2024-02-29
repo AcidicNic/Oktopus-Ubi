@@ -181,13 +181,12 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 
 	@Override
 	public void onClick(View v) {
-		if(v.getId() == R.id.ButtonEntrar) {
+		if (v.getId() == R.id.ButtonEntrar) {
 			CharSequence literal = getString(R.string.PLEASE_WAIT);
 			mProgressDialog = ProgressDialog.show(this, "", literal, true);
 
 			operatorLogin();
-		}
-		if (v.getId() == R.id.editURL){
+		} else if (v.getId() == R.id.editURL) {
 			startActivity(new Intent(LoginActivity.this, EditURL.class));
 		}
 	}

@@ -60,9 +60,13 @@ android:versionName="1.322" >
     <activity android:name="com.thirtythreelabs.oktopus.Preferences"
         android:label="@string/app_name"
         android:screenOrientation="portrait" >
-
-
     </activity>
+
+    <activity android:name="com.thirtythreelabs.oktopus.EditURL"
+        android:label="@string/app_name"
+        android:screenOrientation="portrait" >
+    </activity>
+
 </application>
 </manifest>
     <!--<?xml version="1.0" encoding="utf-8"?>-->
