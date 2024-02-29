@@ -252,18 +252,12 @@ public class ChooseWarehouseActivity extends Activity implements OnClickListener
 	@Override
 	public void onClick(View v) {
 
-		switch(v.getId()){
-
-			case R.id.exitButton:
-				gotoLoginActivity();
-			break;
-
-
-			case R.id.refreshButton:
-				getHeadersByWarehouse();
-			break;
-
+		if (v.getId() == R.id.exitButton) {
+			gotoLoginActivity();
+		} else if (v.getId() == R.id.refreshButton) {
+			getHeadersByWarehouse();
 		}
+		
 	}
 
 }

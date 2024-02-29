@@ -381,44 +381,35 @@ public class ClosedOrdersActivity extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 
-		switch(v.getId()){
+		int viewId = v.getId();
 
-			case R.id.backButton:
-				gotoOrderActivity();
-			break;
+		if (viewId == R.id.backButton) {
+			gotoOrderActivity();
 
-			case R.id.filterButton:
-				if(mFiltering){
-					clearFilter();
-				}else{
-					openFilterDialog();
-				}
-			break;
+		} else if (viewId == R.id.filterButton) {
+			if (mFiltering) {
+				clearFilter();
+			} else {
+				openFilterDialog();
+			}
 
-			case R.id.getOrdersButton:
+		} else if (viewId == R.id.getOrdersButton) {
+			mFiltering = false;
+			mFilterText = "";
+			mFilterButton.setText("FILTRAR");
 
-				mFiltering = false;
-				mFilterText = "";
-				mFilterButton.setText("FILTRAR");
+			if (mOrderType.equalsIgnoreCase("future")) {
 
-				if(mOrderType.equalsIgnoreCase("future")){
-
-					mOrderType = "today";
-					mGetOrdersButton.setText(getResources().getString(R.string.TODAY_BILLING));
-					getTodayBillingClosedOrders();
-				}else{
-
-
-					mOrderType = "future";
-					mGetOrdersButton.setText(getResources().getString(R.string.FUTURE_BILLING));
-					getFutureBillingClosedOrders();
-				}
-
-
-
-			break;
-
+				mOrderType = "today";
+				mGetOrdersButton.setText(getResources().getString(R.string.TODAY_BILLING));
+				getTodayBillingClosedOrders();
+			} else {
+				mOrderType = "future";
+				mGetOrdersButton.setText(getResources().getString(R.string.FUTURE_BILLING));
+				getFutureBillingClosedOrders();
+			}
 		}
+
 	}
 	
 	public void openFilterDialog(){

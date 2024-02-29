@@ -345,24 +345,19 @@ public class ItemsActivity extends Activity implements OnClickListener, Stt.OnSt
 	@Override
 	public void onClick(View v) {
 
-		switch(v.getId()){
-			case R.id.preferences:
-				startActivity(new Intent(this, Preferences.class));
-			break;
+		int viewId = v.getId();
 
-			case R.id.buttonMute:
-				if(mIsSistemMute == false){
-					mute();
-				}else{
-					reStartSystem();
-				}
-			break;
+		if (viewId == R.id.preferences) {
+			startActivity(new Intent(this, Preferences.class));
 
-			case R.id.buttonCancelOrder:
-				gotoOrderActivity();
-
-			break;
-
+		} else if (viewId == R.id.buttonMute) {
+			if (!mIsSistemMute) {
+				mute();
+			} else {
+				reStartSystem();
+			}
+		} else if (viewId == R.id.buttonCancelOrder) {
+			gotoOrderActivity();
 		}
 		
 	}

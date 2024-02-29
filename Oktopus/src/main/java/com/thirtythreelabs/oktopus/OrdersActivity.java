@@ -707,31 +707,24 @@ public class OrdersActivity extends Activity implements OnClickListener, Stt.OnS
 	@Override
 	public void onClick(View v) {
 
-		switch(v.getId()){
-			case R.id.preferences:
-				startActivity(new Intent(this, Preferences.class));
-			break;
+		int viewId = v.getId();
 
-			case R.id.muteButton:
-				if(mIsSistemMute == false){
-					mute();
-				}else{
-					reStartSystem();
-				}
-			break;
-
-			case R.id.exitButton:
+		if (viewId == R.id.preferences) {
+			startActivity(new Intent(this, Preferences.class));
+		} else if (viewId == R.id.muteButton) {
+			if (!mIsSistemMute) {
 				mute();
-
-				gotoChooseWarehouseActivity();
-			break;
-
-			case R.id.closedOrders:
-				mute();
-
-				gotoClosedOrdersActivity();
-			break;
+			} else {
+				reStartSystem();
+			}
+		} else if (viewId == R.id.exitButton) {
+			mute();
+			gotoChooseWarehouseActivity();
+		} else if (viewId == R.id.closedOrders) {
+			mute();
+			gotoClosedOrdersActivity();
 		}
+
 	}
 
 	
