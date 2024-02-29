@@ -16,17 +16,16 @@
      </TextView>
  	
  	<LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" 
-                android:layout_marginTop="@dimen/margin20">
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="@dimen/margin20" >
 
  		<Button
  		    android:id="@+id/dialogButtonCancel"
  		    android:layout_width="fill_parent"
  		    android:layout_height="wrap_content"
- 		    android:layout_marginBottom="@dimen/margin15"
- 		    android:layout_marginLeft="@dimen/margin15"
- 		    android:layout_marginRight="@dimen/margin5"
+			android:layout_gravity="center_vertical"
+			android:layout_marginRight="@dimen/margin5"
  		    android:layout_weight="1"
  		    android:background="@color/orange_button"
  		    android:minHeight="@dimen/standardButtonHeight"
@@ -39,9 +38,9 @@
  		    android:id="@+id/closedOrdersButton"
  		    android:layout_width="fill_parent"
  		    android:layout_height="wrap_content"
- 		    android:layout_marginBottom="@dimen/margin15"
- 		    android:layout_marginLeft="@dimen/margin5"
- 		    android:layout_marginRight="@dimen/margin5"
+			android:layout_gravity="center_vertical"
+			android:layout_marginLeft="@dimen/margin5"
+			android:layout_marginRight="@dimen/margin5"
  		    android:layout_weight="1"
  		    android:background="@color/light_blue_button"
  		    android:minHeight="@dimen/standardButtonHeight"
@@ -54,9 +53,8 @@
 	        android:id="@+id/dialogButtonOK"
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
-	        android:layout_marginBottom="@dimen/margin15"
-	        android:layout_marginLeft="@dimen/margin5"
-	        android:layout_marginRight="@dimen/margin15"
+			android:layout_gravity="center_vertical"
+			android:layout_marginLeft="@dimen/margin5"
 	        android:layout_weight="1"
 	        android:background="@color/green_button"
 	        android:minHeight="@dimen/standardButtonHeight"
