@@ -279,12 +279,13 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 		
 		String mOperatorPassword = mOperatorPasswordText.getText().toString();
 
-		if (mLocations.getLocations().size() > 1) {
-			selectedLocation = mLocationSpin.getSelectedItem().toString();
-			mLocations.setCurrentLocation(selectedLocation);
-		}
-		else {
-			mLocations.setCurrentLocation("");
+		if (mLocations != null) {
+			if (mLocations.getLocations().size() > 1) {
+				selectedLocation = mLocationSpin.getSelectedItem().toString();
+				mLocations.setCurrentLocation(selectedLocation);
+			} else {
+				mLocations.setCurrentLocation("");
+			}
 		}
 
 		//mOktopusFlow.setCompanyLocation(selectedLocation);
