@@ -340,7 +340,11 @@ public class OrdersActivity extends Activity implements OnClickListener, Stt.OnS
         mTotalOrders.setText(String.valueOf(tempTotalLines));
         
         TextView mFloor = (TextView) findViewById(R.id.operatorAndFloor);
-        mFloor.setText(getString(R.string.app_name) + " | " + getString(R.string.FLOOR) + " " + mWarehouseId + " | " + mOperatorName);
+		if (!Config.URL.equals(Config.defaultURL)) {
+			mFloor.setText(getString(R.string.app_name) + " | " + getString(R.string.FLOOR) + " " + mWarehouseId + " | " + mOperatorName + " | *TEST SERVER*");
+		} else {
+			mFloor.setText(getString(R.string.app_name) + " | " + getString(R.string.FLOOR) + " " + mWarehouseId + " | " + mOperatorName);
+		}
         
         enableButtons();
         
@@ -641,7 +645,8 @@ public class OrdersActivity extends Activity implements OnClickListener, Stt.OnS
 		tempIntent.putExtra("operator", mOperator);
 		tempIntent.putExtra("locations", mLocations);
 		tempIntent.putExtra("order", tempOrder);
-		
+
+		finish();
 		startActivity(tempIntent);
 	}
 	
@@ -652,7 +657,8 @@ public class OrdersActivity extends Activity implements OnClickListener, Stt.OnS
 		Intent tempIntent = null;
 
 		tempIntent = new Intent(this, LoginActivity.class);
-		
+
+		finish();
 		startActivity(tempIntent);
 	}
 	
@@ -662,6 +668,7 @@ public class OrdersActivity extends Activity implements OnClickListener, Stt.OnS
 		intent.putExtra("operator", mOperator);
 		intent.putExtra("locations", mLocations);
 
+		finish();
 		startActivity(intent);
 	}
 		
@@ -671,7 +678,8 @@ public class OrdersActivity extends Activity implements OnClickListener, Stt.OnS
 		
 		tempIntent.putExtra("operator", mOperator);
 		tempIntent.putExtra("locations", mLocations);
-		
+
+		finish();
 		startActivity(tempIntent);
 	}
 

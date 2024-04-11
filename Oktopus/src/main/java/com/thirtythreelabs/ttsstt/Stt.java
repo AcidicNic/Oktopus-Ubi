@@ -98,28 +98,28 @@ public class Stt {
 	    		countDownTimer.cancel();
 	    		startRecognizeSpeech();
 	    		
-	    		((OnSttResults) mActivity).setToast("ERROR_NETWORK_TIMEOUT (error " +  error + ")");
+//	    		((OnSttResults) mActivity).setToast("ERROR_NETWORK_TIMEOUT (error " +  error + ")");
 		    }
 	    	
 	    	if (error == SpeechRecognizer.ERROR_NETWORK) {
 	    		countDownTimer.cancel();
 	    		startRecognizeSpeech();
 	    		
-	    		((OnSttResults) mActivity).setToast("ERROR_NETWORK_TIMEOUT (error " +  error + ")");
+//	    		((OnSttResults) mActivity).setToast("ERROR_NETWORK_TIMEOUT (error " +  error + ")");
 		    }
 	    	
 	    	if (error == SpeechRecognizer.ERROR_AUDIO) {
 	    		countDownTimer.cancel();
 	    		startRecognizeSpeech();
 	    		
-	    		((OnSttResults) mActivity).setToast("ERROR_AUDIO (error " +  error + ")");
+//	    		((OnSttResults) mActivity).setToast("ERROR_AUDIO (error " +  error + ")");
 	        }
 	    	
 	    	if (error == SpeechRecognizer.ERROR_SERVER) {
 	    		countDownTimer.cancel();
 	    		startRecognizeSpeech();
 	    		
-	    		((OnSttResults) mActivity).setToast("ERROR_SERVER (error " +  error + ")");
+//	    		((OnSttResults) mActivity).setToast("ERROR_SERVER (error " +  error + ")");
 	        }
 	    	
 	    	if (error == SpeechRecognizer.ERROR_CLIENT) {
@@ -133,27 +133,27 @@ public class Stt {
 	    		countDownTimer.cancel();
 	    		startRecognizeSpeech();
 	    		
-	    		((OnSttResults) mActivity).setToast("ERROR_SPEECH_TIMEOUT (error " +  error + ")");
+//	    		((OnSttResults) mActivity).setToast("ERROR_SPEECH_TIMEOUT (error " +  error + ")");
 	        }
 	    	
 	    	if (error == SpeechRecognizer.ERROR_NO_MATCH) {
 	    		countDownTimer.cancel();
 	    		startRecognizeSpeech();
 	    		
-	    		((OnSttResults) mActivity).setToast("ERROR_NO_MATCH (error " +  error + ")");
+//	    		((OnSttResults) mActivity).setToast("ERROR_NO_MATCH (error " +  error + ")");
 		    }
 		   	
 		   	if (error == SpeechRecognizer.ERROR_RECOGNIZER_BUSY) {
 		   		
 	    		
-		   		((OnSttResults) mActivity).setToast("ERROR_RECOGNIZER_BUSY (error " +  error + ")");
+//		   		((OnSttResults) mActivity).setToast("ERROR_RECOGNIZER_BUSY (error " +  error + ")");
 		    }
 		   	
 		   	if (error == SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS) {
 		   		countDownTimer.cancel();
 	    		startRecognizeSpeech();
 	    		
-	    		((OnSttResults) mActivity).setToast("ERROR_INSUFFICIENT_PERMISSIONS (error " +  error + ")");
+//	    		((OnSttResults) mActivity).setToast("ERROR_INSUFFICIENT_PERMISSIONS (error " +  error + ")");
 		   	}
 		   	
 			// mText.setText("error " + error);

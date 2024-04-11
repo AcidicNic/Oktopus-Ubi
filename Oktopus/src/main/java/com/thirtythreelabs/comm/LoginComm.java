@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.content.Context;
 import android.text.format.DateFormat;
+import android.util.Log;
 
 import com.thirtythreelabs.oktopus.OrdersActivity;
 import com.thirtythreelabs.systemmodel.Order;
@@ -26,12 +27,13 @@ public class LoginComm {
 	private boolean mOnline;
 	
 	private JsonToOperator mJsonToOperator;
+	private String TAG = "LoginComm";
 	
 	private WriteLog mLog = new WriteLog();
 	
 	public static final String GET_LOGIN_ACTION = "com.thirtythreelabs.oktopus.GET_LOGIN_ACTION"; 
 	
-	private static final String GET_LOGIN_URI = Config.URL + "loginv1/";
+	private static String GET_LOGIN_URI = Config.URL + "loginv1/";
 	
 	public LoginComm (Context tempContext, Activity tempActivity, String tempLang, boolean tempOnline){
 		mActivity = tempActivity;
@@ -50,7 +52,8 @@ public class LoginComm {
 		if(mOnline){
 			try{			
 				
-				String url = String.format(GET_LOGIN_URI);
+				String url = Config.URL + "loginv1/";
+				Log.d(TAG, "URL: " + url);
 				HttpPost postRequest = new HttpPost(new URI(url));
 				
 				String mJson;

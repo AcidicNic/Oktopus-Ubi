@@ -15,6 +15,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -25,6 +26,8 @@ import android.widget.Toast;
 import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
 import android.widget.ArrayAdapter;
 
 import com.thirtythreelabs.comm.JsonToOperator;
@@ -69,7 +72,6 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 	private LoginLocations mLoginLocationsComm;
 	private JsonToOperator mJsonToOperator;
 	private JsonToLocations mJsonToLocations;
-	private String url = "http://192.168.73.11/smpm/rest/";
 
     PendingIntent mNfcPendingIntent;
     IntentFilter[] mReadTagFilters;
@@ -130,7 +132,7 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 
 		TextView mTestText = (TextView) findViewById(R.id.testText);
 
-		if(Config.URL.equals(url)){
+		if(Config.URL.equals(Config.defaultURL)){
 			mTestText.setVisibility(View.GONE);
 		}else{
 			mTestText.append(" (Ubi)  ---  " + Config.URL);
@@ -187,6 +189,7 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 
 			operatorLogin();
 		} else if (v.getId() == R.id.editURL) {
+			finish();
 			startActivity(new Intent(LoginActivity.this, EditURL.class));
 		}
 	}
@@ -207,12 +210,15 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 				
 				if(mOperator.getLoginError().equals("N")){
 
-
-					if(mLocations.getCurrentLocation().equals("PLANTA")){
-						mOperator.setOperatorCurrentWarehoueseId("1");
-						gotoOrdersActivity();
-					}
-					else{
+					try {
+						if (mLocations.getCurrentLocation().equals("PLANTA")) {
+							mOperator.setOperatorCurrentWarehoueseId("1");
+							gotoOrdersActivity();
+						} else {
+							gotoChooseWarehouseActivity();
+						}
+					} catch (Exception e) {
+						Log.e("LoginActivity", Objects.requireNonNull(e.getMessage()));
 						gotoChooseWarehouseActivity();
 					}
 					
@@ -310,6 +316,7 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 		intent.putExtra("operator", mOperator);
 		intent.putExtra("locations", mLocations);
 
+		finish();
 		startActivity(intent);
 	}
 	
@@ -320,7 +327,7 @@ public class LoginActivity extends Activity implements OnClickListener, View.OnF
 		intent.putExtra("operator", mOperator);
 		intent.putExtra("locations", mLocations);
 
-
+		finish();
 		startActivity(intent);
 	}
 	

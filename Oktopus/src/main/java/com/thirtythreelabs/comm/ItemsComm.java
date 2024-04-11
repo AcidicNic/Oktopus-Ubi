@@ -36,8 +36,8 @@ public class ItemsComm {
 	public static final String SET_ITEM_STATUS_TO_PICKED_ACTION = "com.thirtythreelabs.oktopus.SET_ITEM_STATUS_TO_PICKED_ACTION";
 	public static final String SET_ITEM_STATUS_TO_IN_PROGRESS_MANUAL_ACTION = "com.thirtythreelabs.oktopus.SET_ITEM_STATUS_TO_IN_PROGRESS_MANUAL_ACTION"; 
 	
-	private static final String GET_ITEMS_URI = Config.URL + "getlinesv2/";
-	private static final String SET_ITEMS_STATUS_URI = Config.URL + "setitemstatusv1/";
+	private static String GET_ITEMS_URI = Config.URL + "getlinesv2/";
+	private static String SET_ITEMS_STATUS_URI = Config.URL + "setitemstatusv1/";
 	
 	
 	public ItemsComm (Context tempContext, Activity tempActivity, String tempLang, boolean tempOnline, String tempCompanyId, Locations tempLocation){
@@ -61,7 +61,7 @@ public class ItemsComm {
 			try{
 				mLog.appendLog("ItemsComm: getItems()");
 				
-				String url = String.format(GET_ITEMS_URI);
+				String url = Config.URL + "getlinesv2/";
 				HttpPost postRequest = new HttpPost(new URI(url));
 				
 				String mJson;
@@ -124,7 +124,7 @@ public class ItemsComm {
 		if(mOnline){
 			try{
 				
-				String url = String.format(SET_ITEMS_STATUS_URI);
+				String url = Config.URL + "setitemstatusv1/";
 				HttpPost postRequest = new HttpPost(new URI(url));
 				
 				String mJson;

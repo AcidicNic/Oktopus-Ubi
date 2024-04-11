@@ -38,7 +38,7 @@ public class OrdersComm {
 	
 	public static final String GET_ORDERS_ACTION = "com.thirtythreelabs.oktopus.GET_ORDERS_ACTION"; 
 	
-	private static final String GET_ORDERS_URI = Config.URL + "getheadersv3/";
+	private static String GET_ORDERS_URI = Config.URL + "getheadersv3/";
 	
 	
 	public OrdersComm (Context tempContext, Activity tempActivity, String tempLang, boolean tempOnline, String tempCompanyId, int tempJLocId, String tempLocation){
@@ -56,12 +56,14 @@ public class OrdersComm {
 	
 	
 	public void getOrders(String pWarehouseId, String pHeaderStatusId) {		
-		//Create the search request 
-		
+		//Create the search request
+
 		if(mOnline){
-			try{			
-				
-				String url = String.format(GET_ORDERS_URI);
+			try{
+
+				String url = Config.URL + "getheadersv3/";
+				Log.d(TAG , "url: " + url);
+
 				HttpPost postRequest = new HttpPost(new URI(url));
 				
 				String mJson;

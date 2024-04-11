@@ -918,7 +918,8 @@ public class ItemsActivity extends Activity implements OnClickListener, Stt.OnSt
 		
 		tempIntent.putExtra("operator", mOperator);
 		tempIntent.putExtra("locations", mLocations);
-		
+
+		finish();
 		startActivity(tempIntent);
 	}
 

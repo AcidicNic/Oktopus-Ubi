@@ -29,7 +29,7 @@ public class LocationsComm {
 
     public static final String GET_ITEMS_ACTION = "com.thirtythreelabs.oktopus.GET_ITEMS_ACTION";
 
-    private static final String GET_LOCATIONS_URI = Config.URL + "getubicacion/";
+    private static String GET_LOCATIONS_URI = Config.URL + "getubicacion/";
 
     public LocationsComm (String tempJStoID, String tempJLocID, boolean tempOnline){
         mOnline = tempOnline;
@@ -44,7 +44,7 @@ public class LocationsComm {
                 mLocations = "";
                 mLog.appendLog("ItemsComm: getItems()");
 
-                String url = String.format(GET_LOCATIONS_URI);
+                String url = Config.URL + "getubicacion/";
                 HttpPost postRequest = new HttpPost(new URI(url));
 
                 String mJson;

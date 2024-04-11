@@ -32,7 +32,7 @@ public class HeadersByWarehouseComm {
 	
 	public static final String GET_HEADERS_BY_WAREHOUSE_ACTION = "com.thirtythreelabs.oktopus.GET_HEADERS_BY_WAREHOUSE_ACTION";
 
-	private static final String GET_HEADERS_BY_WAREHOUSE_URI = Config.URL + "getheadersbywarehouse/";
+	private String GET_HEADERS_BY_WAREHOUSE_URI = Config.URL + "getheadersbywarehouse/";
 	
 	public HeadersByWarehouseComm (Context tempContext, Activity tempActivity, String tempLang, boolean tempOnline, String tempCompanyId, int tempJLocID, String tempLocation){
 		mActivity = tempActivity;
@@ -52,9 +52,11 @@ public class HeadersByWarehouseComm {
 		if(mOnline){
 			try{
 				
-				String url = String.format(GET_HEADERS_BY_WAREHOUSE_URI);
+				String url = Config.URL + "getheadersbywarehouse/";
 				HttpPost postRequest = new HttpPost(new URI(url));
-				
+
+				Log.d(TAG, "url: " + url);
+
 				String mJson;
 				JSONObject object = new JSONObject();
 		        try {

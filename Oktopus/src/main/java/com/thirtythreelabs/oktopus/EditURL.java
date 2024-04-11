@@ -34,12 +34,10 @@ public class EditURL extends Activity {
             public void onClick(View v) {
                 newURL = editURLText.getText().toString();
                 Config.changeURL(newURL);
+                finish();
                 startActivity(toLogin);
             }
 
         });
-
-
-
     }
 }

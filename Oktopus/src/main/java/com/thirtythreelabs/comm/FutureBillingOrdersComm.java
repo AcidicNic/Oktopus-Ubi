@@ -29,7 +29,7 @@ public class FutureBillingOrdersComm {
 	
 	public static final String GET_HEADERS_NEXT_INVOICE_ACTION = "com.thirtythreelabs.oktopus.GET_HEADERS_NEXT_INVOICE_ACTION";
 
-	private static final String GET_HEADERS_NEXT_INVOICE_URI = Config.URL + "getheadersnextinvoice/";
+	private static String GET_HEADERS_NEXT_INVOICE_URI = Config.URL + "getheadersnextinvoice/";
 	
 	public FutureBillingOrdersComm (Context tempContext, Activity tempActivity, String tempLang, boolean tempOnline, String tempCompanyId){
 		mActivity = tempActivity;
@@ -47,7 +47,7 @@ public class FutureBillingOrdersComm {
 		if(mOnline){
 			try{
 				
-				String url = String.format(GET_HEADERS_NEXT_INVOICE_URI);
+				String url = Config.URL + "getheadersnextinvoice/";
 				HttpPost postRequest = new HttpPost(new URI(url));
 				
 				String mJson;

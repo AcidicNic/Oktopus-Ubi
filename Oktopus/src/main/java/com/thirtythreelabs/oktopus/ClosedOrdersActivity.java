@@ -372,7 +372,8 @@ public class ClosedOrdersActivity extends Activity implements OnClickListener{
 		tempIntent.putExtra("orderNotes", tempOrder.getOrderNotes());
 		
 		tempIntent.putExtra("warehouseId", mWarehouseId);
-		
+
+		finish();
 		startActivity(tempIntent);
 	}
 	
@@ -467,7 +468,8 @@ public class ClosedOrdersActivity extends Activity implements OnClickListener{
 		
 		tempIntent.putExtra("operator", mOperator);
 		tempIntent.putExtra("locations", mLocations);
-		
+
+		finish();
 		startActivity(tempIntent);
 	}
 

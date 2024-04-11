@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -29,6 +30,7 @@ import com.thirtythreelabs.oktopus.R;
 import com.thirtythreelabs.systemmodel.Operator;
 import com.thirtythreelabs.systemmodel.Warehouse;
 import com.thirtythreelabs.systemmodel.Locations;
+import com.thirtythreelabs.util.Config;
 import com.thirtythreelabs.util.WriteLog;
 
 
@@ -100,9 +102,16 @@ public class ChooseWarehouseActivity extends Activity implements OnClickListener
 			}
 			
 		});
-		
+
 		TextView mFloor = (TextView) findViewById(R.id.operatorAndFloor);
-	    mFloor.setText(getString(R.string.app_name) + " | " + mOperatorName);
+
+		if (!Config.URL.equals(Config.defaultURL)) {
+			mFloor.setText(getString(R.string.app_name) + " | " + mOperatorName + " | *TEST SERVER*");
+		} else {
+			mFloor.setText(getString(R.string.app_name) + " | " + mOperatorName);
+		}
+
+//	    mFloor.setText(getString(R.string.app_name) + " | " + mOperatorName);
 
 	}
 
@@ -233,7 +242,14 @@ public class ChooseWarehouseActivity extends Activity implements OnClickListener
 		Intent tempIntent = null;
 
 		tempIntent = new Intent(this, LoginActivity.class);
-		
+		mOperator = null;
+		mLocations = null;
+		mOperatorName = null;
+		mWarehouseList = null;
+		mHeadersByWarehouseComm = null;
+		finish();
+
+		tempIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(tempIntent);
 	}
 		
@@ -243,6 +259,7 @@ public class ChooseWarehouseActivity extends Activity implements OnClickListener
 		intent.putExtra("operator", mOperator);
 		intent.putExtra("locations", mLocations);
 
+		finish();
 		startActivity(intent);
 	}
 
